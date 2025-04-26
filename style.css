@@ -1,0 +1,255 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #27272B;
+    color: #FFE14D;
+    transition: background-color 0.3s ease;
+}
+
+h1 {
+    color: #FFE14D;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.calculator {
+    background: rgba(30, 30, 33, 0.9);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+}
+
+.controls {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+select, button {
+    padding: 12px 18px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+select {
+    background-color: #333;
+    color: #FFE14D;
+    border: 1px solid #444;
+}
+
+select:hover {
+    background-color: #3a3a3a;
+}
+
+button {
+    background: #FFE14D;
+    color: #27272B;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background: #e6cb3c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.matrix-container {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.matrix {
+    background: rgba(40, 40, 45, 0.9);
+    border: 1px solid #444;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    width: fit-content;
+    min-width: 200px;
+}
+
+.matrix h3 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    color: #FFE14D;
+}
+
+.matrix-grid {
+    display: grid;
+    gap: 8px;
+}
+
+.matrix-cell {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 1rem;
+    background: #1E1E21;
+    color: #FFE14D;
+    border: 1px solid #444;
+    border-radius: 8px;
+    transition: border 0.2s ease;
+}
+
+.matrix-cell:focus {
+    border: 1px solid #FFE14D;
+    outline: none;
+}
+
+.result {
+    margin: 30px auto 0 auto;
+    padding: 20px 25px;
+    background-color: #1E1E21;
+    border-radius: 12px;
+    color: #FFE14D;
+    font-size: 1.2rem;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    word-wrap: break-word;
+    overflow-x: auto;
+}
+
+.result .matrix-grid {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    justify-content: center;
+}
+
+.result h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #FFE14D;
+}
+
+.result p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #FFE14D;
+}
+
+.hidden {
+    display: none;
+}
+
+.step-display {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgba(40, 40, 45, 0.9);
+    display: none;
+}
+
+.step-display.active {
+    display: block;
+}
+
+.step-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.step-content {
+    margin-left: 15px;
+}
+
+.tabs {
+    display: flex;
+    margin-top: 20px;
+}
+
+.tab {
+    padding: 10px 15px;
+    background: #333;
+    color: #FFE14D;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    margin-right: 5px;
+}
+
+.tab.active {
+    background: #1E1E21;
+    font-weight: bold;
+}
+
+.tab-content {
+    padding: 20px;
+    background: #1E1E21;
+    border-radius: 0 8px 8px 8px;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.history-item {
+    padding: 10px;
+    margin-bottom: 8px;
+    background: rgba(40, 40, 45, 0.9);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.history-item:hover {
+    background: rgba(50, 50, 55, 0.9);
+}
+
+.preset-item {
+    padding: 10px;
+    margin-bottom: 8px;
+    background: rgba(40, 40, 45, 0.9);
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.preset-item:hover {
+    background: rgba(50, 50, 55, 0.9);
+}
+
+#toggleSteps {
+    background: #444;
+    color: #FFE14D;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+    .matrix-container,
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    select, button {
+        width: 100%;
+    }
+
+    .matrix {
+        width: 100%;
+    }
+}

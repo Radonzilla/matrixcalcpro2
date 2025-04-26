@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Matrix Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Advanced Matrix Calculator</h1>
+    
+    <div class="calculator">
+        <div class="controls">
+            <select id="operation">
+                <option value="add">Addition (A+B)</option>
+                <option value="subtract">Subtraction (A-B)</option>
+                <option value="multiply">Multiplication (A×B)</option>
+                <option value="determinant">Determinant (A)</option>
+                <option value="inverse">Inverse (A)</option>
+                <option value="transpose">Transpose (A)</option>
+                <option value="eigenvalues">Eigenvalues (A)</option>
+                <option value="power">Power (A^n)</option>
+            </select>
+            
+            <select id="matrix-size">
+                <option value="2">2×2</option>
+                <option value="3">3×3</option>
+                <option value="4">4×4</option>
+            </select>
+            
+            <button id="calculate">Calculate</button>
+            <button id="randomize">Randomize</button>
+            <button id="save-preset">Save Preset</button>
+        </div>
+        
+        <div id="power-input" class="hidden" style="text-align: center; margin-bottom: 15px;">
+            <label for="power-value">Power value (n): </label>
+            <input type="number" id="power-value" value="2" min="1" max="10" style="width: 60px; padding: 8px; background: #1E1E21; color: #FFE14D; border: 1px solid #444; border-radius: 4px;">
+        </div>
+        
+        <div class="matrix-container">
+            <div class="matrix" id="matrix-a">
+                <h3>Matrix A</h3>
+                <div class="matrix-grid" id="grid-a"></div>
+            </div>
+            
+            <div class="matrix" id="matrix-b">
+                <h3>Matrix B</h3>
+                <div class="matrix-grid" id="grid-b"></div>
+            </div>
+        </div>
+        
+        <div class="result hidden" id="result-container">
+            <h3>Result</h3>
+            <div id="result"></div>
+            <button id="toggleSteps">Show Calculation Steps</button>
+            <div id="steps" class="step-display"></div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" data-tab="history">History</button>
+            <button class="tab" data-tab="presets">Presets</button>
+            <button class="tab" data-tab="help">Help</button>
+        </div>
+        
+        <div class="tab-content">
+            <div class="tab-panel active" id="history-panel">
+                <h3>Calculation History</h3>
+                <div id="history-list"></div>
+            </div>
+            
+            <div class="tab-panel" id="presets-panel">
+                <h3>Saved Presets</h3>
+                <div id="presets-list"></div>
+            </div>
+            
+            <div class="tab-panel" id="help-panel">
+                <h3>Help & Formulas</h3>
+                <p>This calculator supports various matrix operations:</p>
+                <ul>
+                    <li><strong>Addition:</strong> Adds corresponding elements of matrices A and B</li>
+                    <li><strong>Subtraction:</strong> Subtracts corresponding elements of matrix B from A</li>
+                    <li><strong>Multiplication:</strong> Computes the product of matrices A and B</li>
+                    <li><strong>Determinant:</strong> Calculates the determinant of matrix A</li>
+                    <li><strong>Inverse:</strong> Computes the inverse of matrix A</li>
+                    <li><strong>Transpose:</strong> Transposes the rows and columns of matrix A</li>
+                    <li><strong>Eigenvalues:</strong> Calculates eigenvalues of 2×2 matrix A</li>
+                    <li><strong>Power:</strong> Raises matrix A to the power n</li>
+                </ul>
+                <p>To use the calculator, select the operation, set matrix size, enter values, and click Calculate.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
